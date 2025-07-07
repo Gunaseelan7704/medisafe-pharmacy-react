@@ -3,14 +3,15 @@ import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
-import { Pill, AlertTriangle, FileText, Package } from 'lucide-react';
+import { Pill, BarChart3, Package, FileText, TrendingUp } from 'lucide-react';
 import { MedicineInventory } from './MedicineInventory';
 import { PrescriptionValidation } from './PrescriptionValidation';
 import { StockAlerts } from './StockAlerts';
 import { InventoryStats } from './InventoryStats';
+import { StockMovements } from './StockMovements';
 
 export const PharmacyDashboard = () => {
-  const [activeTab, setActiveTab] = useState('inventory');
+  const [activeTab, setActiveTab] = useState('overview');
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50 p-6">
@@ -26,27 +27,35 @@ export const PharmacyDashboard = () => {
               <p className="text-gray-600">Medicine inventory and prescription management system</p>
             </div>
           </div>
-          
-          {/* Quick Stats */}
-          <InventoryStats />
         </div>
 
         {/* Main Content */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-3 mb-6">
+          <TabsList className="grid w-full grid-cols-4 mb-6">
+            <TabsTrigger value="overview" className="flex items-center gap-2">
+              <BarChart3 className="h-4 w-4" />
+              Overview
+            </TabsTrigger>
             <TabsTrigger value="inventory" className="flex items-center gap-2">
               <Package className="h-4 w-4" />
-              Medicine Inventory
+              Inventory
             </TabsTrigger>
             <TabsTrigger value="prescriptions" className="flex items-center gap-2">
               <FileText className="h-4 w-4" />
-              Prescription Validation
+              Prescriptions
             </TabsTrigger>
-            <TabsTrigger value="alerts" className="flex items-center gap-2">
-              <AlertTriangle className="h-4 w-4" />
-              Stock Alerts
+            <TabsTrigger value="stockmovements" className="flex items-center gap-2">
+              <TrendingUp className="h-4 w-4" />
+              Stock Movements
             </TabsTrigger>
           </TabsList>
+
+          <TabsContent value="overview">
+            <div className="space-y-6">
+              <InventoryStats />
+              <StockAlerts />
+            </div>
+          </TabsContent>
 
           <TabsContent value="inventory">
             <MedicineInventory />
@@ -56,8 +65,8 @@ export const PharmacyDashboard = () => {
             <PrescriptionValidation />
           </TabsContent>
 
-          <TabsContent value="alerts">
-            <StockAlerts />
+          <TabsContent value="stockmovements">
+            <StockMovements />
           </TabsContent>
         </Tabs>
       </div>
