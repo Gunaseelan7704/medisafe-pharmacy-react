@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
-import { Pills, AlertTriangle, FileText, Package } from 'lucide-react';
+import { Pill, AlertTriangle, FileText, Package } from 'lucide-react';
 import { MedicineInventory } from './MedicineInventory';
 import { PrescriptionValidation } from './PrescriptionValidation';
 import { StockAlerts } from './StockAlerts';
@@ -19,7 +19,7 @@ export const PharmacyDashboard = () => {
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-3 bg-blue-600 rounded-xl">
-              <Pills className="h-8 w-8 text-white" />
+              <Pill className="h-8 w-8 text-white" />
             </div>
             <div>
               <h1 className="text-3xl font-bold text-gray-900">Pharmacy Management</h1>
