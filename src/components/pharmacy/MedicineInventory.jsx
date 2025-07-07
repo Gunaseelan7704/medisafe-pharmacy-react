@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -78,13 +77,13 @@ export const MedicineInventory = () => {
     return matchesSearch && matchesCategory;
   });
 
-  const getStockStatus = (stock: number, minStock: number) => {
+  const getStockStatus = (stock, minStock) => {
     if (stock <= minStock) return 'low';
     if (stock <= minStock * 1.5) return 'medium';
     return 'high';
   };
 
-  const getStockBadge = (stock: number, minStock: number) => {
+  const getStockBadge = (stock, minStock) => {
     const status = getStockStatus(stock, minStock);
     switch (status) {
       case 'low':

@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
@@ -7,12 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 
-interface AddMedicineDialogProps {
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
-}
-
-export const AddMedicineDialog = ({ open, onOpenChange }: AddMedicineDialogProps) => {
+export const AddMedicineDialog = ({ open, onOpenChange }) => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
@@ -25,7 +19,7 @@ export const AddMedicineDialog = ({ open, onOpenChange }: AddMedicineDialogProps
     batch: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Adding medicine:', formData);
     toast({
