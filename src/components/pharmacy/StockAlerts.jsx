@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -60,7 +59,7 @@ export const StockAlerts = () => {
     }
   ];
 
-  const getUrgencyBadge = (urgency: string) => {
+  const getUrgencyBadge = (urgency) => {
     switch (urgency) {
       case 'critical':
         return <Badge variant="destructive">Critical</Badge>;
@@ -71,7 +70,7 @@ export const StockAlerts = () => {
     }
   };
 
-  const handleReorder = (itemName: string, supplier: string) => {
+  const handleReorder = (itemName, supplier) => {
     console.log('Reordering:', itemName, 'from', supplier);
     toast({
       title: "Reorder Initiated",

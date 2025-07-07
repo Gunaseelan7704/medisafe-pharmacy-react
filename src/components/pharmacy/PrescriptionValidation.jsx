@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -53,7 +52,7 @@ export const PrescriptionValidation = () => {
     prescription.doctorName.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const getStatusBadge = (status: string) => {
+  const getStatusBadge = (status) => {
     switch (status) {
       case 'pending':
         return <Badge variant="secondary">Pending Validation</Badge>;
@@ -66,7 +65,7 @@ export const PrescriptionValidation = () => {
     }
   };
 
-  const handleValidatePrescription = (prescriptionId: string) => {
+  const handleValidatePrescription = (prescriptionId) => {
     console.log('Validating prescription:', prescriptionId);
     toast({
       title: "Prescription Validated",
@@ -74,7 +73,7 @@ export const PrescriptionValidation = () => {
     });
   };
 
-  const handleDispenseMedicine = (prescriptionId: string) => {
+  const handleDispenseMedicine = (prescriptionId) => {
     console.log('Dispensing medicine for prescription:', prescriptionId);
     toast({
       title: "Medicine Dispensed",
