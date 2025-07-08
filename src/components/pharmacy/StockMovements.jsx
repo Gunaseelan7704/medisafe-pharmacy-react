@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -86,7 +85,7 @@ export const StockMovements = () => {
     movement.reason.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const getMovementTypeColor = (type: string) => {
+  const getMovementTypeColor = (type) => {
     switch (type) {
       case 'IN':
         return 'bg-green-100 text-green-800';
@@ -99,7 +98,7 @@ export const StockMovements = () => {
     }
   };
 
-  const getMovementIcon = (type: string) => {
+  const getMovementIcon = (type) => {
     switch (type) {
       case 'IN':
         return <Plus className="h-4 w-4" />;
